@@ -2,8 +2,8 @@ function [] = Trapezoidal()
 clc
 clear
 
-disp("Parametros del triagulo 1: a1=3, b1=9, m1=6")
-disp("Parametros del triagulo 2: a2=6, b2=12, m2=9")
+disp("Parametros de la grafica 1: a1=3, b1=5, c1 = 8 d1 = 9")
+disp("Parametros de la grafica 2: a1=6, b1=8, c1 = 11 d2 = 13")
 disp("...........")
 disp("Intervalo = [3, 13]")
 disp("...........")

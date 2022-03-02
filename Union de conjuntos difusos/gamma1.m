@@ -3,7 +3,8 @@ clc
 clear
 
 %Parametros del sistema: 
-disp("Parametros de la grafica: k1 = 1, a1=4, k2 = 1, a2 = 8")
+disp("Parametros de la grafica1: k1 = 1, a1=4, k2 = 1, a2 = 8")
+disp("Parametros de la grafica1: k1 = 1, a1=6, k2 = 1, a2 = 10")
 k1 = 1; a1=4;k2 = 1; a2=8;
 k3 = 1; a3=6;k4 = 1; a4=10; 
 disp("...........")
