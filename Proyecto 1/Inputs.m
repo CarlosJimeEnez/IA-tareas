@@ -5,8 +5,7 @@ classdef Inputs
         rango_total
         tipo
         func_membr
-        graficas = {0,0,0} 
-        
+        graficas 
     end
 
     methods
@@ -23,8 +22,6 @@ classdef Inputs
             obj.rango_total = options.rango; 
             obj.tipo = options.tipo;
             obj.func_membr = options.func_memb;
-            
-            
         end
 
         %% Funciones: 
@@ -35,35 +32,51 @@ classdef Inputs
         end
 
         function output = build_functions(obj)
+            %Devuelve las key del dic (obj.func_memb)
             key = fieldnames(obj.func_membr); 
-            disp(key)
-                        
+            
+            [rows, cols] = size(obj.rango_total); 
+            obj.graficas = zeros(length(obj.tipo), cols);
+            fun_memb = zeros(rows, cols);
+            
             i = 1; 
             for fun = obj.tipo
+                
                 if fun == "exp"
-                   rango = getfield(obj.func_membr(2),key{i,1});
+                   
+                   %Generacion de las fun de membr
                    m = getfield(obj.func_membr(1),key{i,1});
-                   k = getfield(obj.func_membr(3),key{i,1});    
-                   disp(k)
-                   disp(m)
-                   %Generacion de graf exp: 
-                   for j = 1:rango
-                       obj.graficas{i} = 1/(1+k*(rango(:,j) - m)^2);
+                   
+                   k = getfield(obj.func_membr(2),key{i,1});
+                   for j = 1:cols
+                        fun_memb(:,j) = exp(-k*(obj.rango_total(:,j)-m)^2);
                    end
+                   %Guardar en un arreglo todas las fun de memb
+                   obj.graficas(i,:) = fun_memb;
+                   disp(size(obj.graficas))
                 end
 
                 i = i + 1;  
             end
+            output = obj.graficas; 
         end
-
-        %Muestra la grafica: 
-        function output = display_graf(obj)
-            tiledlayout(1,1)
-            nexttile
-            plot(ts, obj.graficas{1})
-            title("Grafica A")
+       
+        %Muestra las graficas: 
+        function out = display_fun(obj, value)
+            [rows, cols] = size(value); 
+            title(obj.nombre)
+            hold on
+            for i = 1:rows
+                plot(obj.rango_total, value(i,:))
+            end
+            hold off
         end
-
+        
+        %% Get and set:
+        function output = set_graficas_memb_values(obj, value)
+            obj.graficas = value; 
+            output = obj.graficas; 
+        end
     end
 end
 
