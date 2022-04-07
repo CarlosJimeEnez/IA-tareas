@@ -43,7 +43,6 @@ classdef Inputs
             for fun = obj.tipo
                 
                 if fun == "exp"
-                   
                    %Generacion de las fun de membr
                    m = getfield(obj.func_membr(1),key{i,1});
                    
@@ -53,7 +52,7 @@ classdef Inputs
                    end
                    %Guardar en un arreglo todas las fun de memb
                    obj.graficas(i,:) = fun_memb;
-                   disp(size(obj.graficas))
+                   %disp(size(obj.graficas))
                 end
 
                 i = i + 1;  
@@ -72,6 +71,38 @@ classdef Inputs
             hold off
         end
         
+        %Fuzifica la entrada: 
+        function out = fuze_input(obj,val)
+            key = fieldnames(obj.func_membr); 
+            rango = vector_tiempo(0.001, 0, val); 
+            [rows, cols] = size(rango); 
+            fuzzy_values = zeros(length(obj.tipo), cols);
+            fun_memb = zeros(rows, cols);
+        
+            i = 1; 
+            for fun = obj.tipo           
+                if fun == "exp"
+                   %Generacion de las fun de membr
+                   m = getfield(obj.func_membr(1),key{i,1});                   
+                   k = getfield(obj.func_membr(2),key{i,1});
+
+                   for j = 1:cols
+                        fun_memb(:,j) = exp(-k*(rango(:,j)-m)^2);
+                   end
+                   %Guardar en un arreglo todas las fun de memb
+                   fuzzy_values(i,:) = fun_memb;
+                   %disp(size(obj.graficas))
+                end
+                i = i + 1;  
+            end
+
+            [rows, cols] = size(fuzzy_values);
+            out = zeros(rows, 1); 
+            for i = 1:rows
+                out(i,:) = fuzzy_values(i, cols);
+            end
+        end
+
         %% Get and set:
         function output = set_graficas_memb_values(obj, value)
             obj.graficas = value; 
