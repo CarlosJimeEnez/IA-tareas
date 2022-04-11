@@ -15,7 +15,7 @@ DefuzzMethod='centroid'
 Name='input1'
 Range=[0 10]
 NumMFs=3
-MF1='B':'gaussmf',[1.61729334292236 -0.089]
+MF1='B':'gaussmf',[1.617 0]
 MF2='Op':'gaussmf',[0.396965624047663 6]
 MF3='A':'gaussmf',[1.27114215929394 10]
 
@@ -31,7 +31,7 @@ MF3='A':'gaussmf',[1.11491239669916 10]
 Name='output1'
 Range=[0 10]
 NumMFs=3
-MF1='B':'gaussmf',[1 -0.0167224080267562]
+MF1='B':'gaussmf',[1 0]
 MF2='Md':'gaussmf',[0.745642048747842 5]
 MF3='A':'gaussmf',[0.7274 10]
 
