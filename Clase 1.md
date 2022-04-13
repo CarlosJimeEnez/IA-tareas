@@ -28,7 +28,7 @@ Referencia $k$ (k = 27)
 
 - Creamos 1 variable de entrada: $x" = k - x$ calculamos el intervalo para $x"$: 
 $$x" = 27 - 0 = 27$$
-$$x" = 27 - 60 = 27$$
+$$x" = 27 - 60 = -33$$
 Con esto obtenemos el intervalo [-33, 27] el cual representa un conjunto de error posible. 
 
 - Primer conjunto x: [0  60]
