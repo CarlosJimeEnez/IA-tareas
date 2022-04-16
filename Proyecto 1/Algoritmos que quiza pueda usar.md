@@ -1,0 +1,2 @@
+## Reglas: 
+- Primero calculamos los $$
