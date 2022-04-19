@@ -47,7 +47,7 @@ print(f'Valores de pertenencia PROB_LLUVIA: {prob_lluvia_belonging_value}')
 
 # -- REGLAS DE INFERENCIA: 
 Reglas_array = [
-    "(H es MuyBaja) and ProbLL es Baja -> Val es Abierta", 
+    "H es MuyBaja and ProbLL es Baja -> Val es Abierta", 
     "H es MuyBaja and ProbLL es MediaBaja -> Val es Abierta", 
     "H es MuyBaja and ProbLL es Alta -> Val es Abierta", 
 
