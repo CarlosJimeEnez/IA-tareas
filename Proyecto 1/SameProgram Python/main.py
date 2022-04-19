@@ -88,5 +88,5 @@ plt.xlabel('Rango')
 plt.ylabel('Pertenencia')
 plt.title('Input1')
 plt.legend()
->>>>>>> bf1bc9cdc72e3941206fbf4e2f45c249756c6022
+
 plt.show()
