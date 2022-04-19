@@ -4,7 +4,7 @@ Type='mamdani'
 Version=2.0
 NumInputs=2
 NumOutputs=1
-NumRules=9
+NumRules=15
 AndMethod='min'
 OrMethod='max'
 ImpMethod='min'
@@ -14,10 +14,12 @@ DefuzzMethod='centroid'
 [Input1]
 Name='input1'
 Range=[0 10]
-NumMFs=3
-MF1='B':'gaussmf',[1.61729334292236 -0.089]
-MF2='Op':'gaussmf',[0.396965624047663 6]
-MF3='A':'gaussmf',[1.27114215929394 10]
+NumMFs=5
+MF1='Baja':'gaussmf',[0.755400228813756 -0.089]
+MF2='Optima':'gaussmf',[0.372571517382063 6]
+MF3='Alta':'gaussmf',[0.662153170702718 10]
+MF4='MedBaja':'gaussmf',[0.9746894672744 3]
+MF5='MediaAlta':'gaussmf',[0.481164637377308 7.5]
 
 [Input2]
 Name='input2'
@@ -30,18 +32,26 @@ MF3='A':'gaussmf',[1.11491239669916 10]
 [Output1]
 Name='output1'
 Range=[0 10]
-NumMFs=3
-MF1='B':'gaussmf',[1 -0.0167224080267562]
-MF2='Md':'gaussmf',[0.745642048747842 5]
-MF3='A':'gaussmf',[0.7274 10]
+NumMFs=5
+MF1='Cerrada':'gaussmf',[1 -0.0167224080267562]
+MF2='Media':'gaussmf',[0.653324461760015 5]
+MF3='Abierta':'gaussmf',[0.679810588588123 10]
+MF4='MedCerrada':'gaussmf',[0.798998159314612 2.5]
+MF5='MedAbierta':'gaussmf',[0.851970412970831 7.5]
 
 [Rules]
 1 1, 3 (1) : 1
 1 2, 3 (1) : 1
-1 3, 2 (1) : 1
+1 3, 3 (1) : 1
+4 1, 3 (1) : 1
+4 2, 5 (1) : 1
+4 3, 5 (1) : 1
 2 1, 2 (1) : 1
 2 2, 2 (1) : 1
-2 3, 1 (1) : 1
+2 3, 4 (1) : 1
+5 1, 4 (1) : 1
+5 2, 4 (1) : 1
+5 3, 4 (1) : 1
 3 1, 1 (1) : 1
 3 2, 1 (1) : 1
 3 3, 1 (1) : 1
